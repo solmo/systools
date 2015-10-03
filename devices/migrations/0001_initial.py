@@ -13,8 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Server',
             fields=[
-                ('id_dispositivo', models.PositiveSmallIntegerField(verbose_name='ID', default=0, serialize=False, primary_key=True)),
-                ('hostname', models.CharField(default='hostname', max_length=15)),
+                ('id_dispositivo', models.PositiveSmallIntegerField(primary_key=True, serialize=False, default=0, verbose_name='ID')),
+                ('hostname', models.CharField(max_length=15, default='hostname')),
                 ('ip', models.GenericIPAddressField(default='127.0.0.1')),
                 ('backup', models.BooleanField(default=False)),
                 ('f_ultimo_backup', models.DateTimeField(null=True, blank=True)),
@@ -28,8 +28,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='VirtualServer',
             fields=[
-                ('id_dispositivo', models.PositiveSmallIntegerField(verbose_name='ID', default=0, serialize=False, primary_key=True)),
-                ('hostname', models.CharField(default='hostname', max_length=15)),
+                ('id_dispositivo', models.PositiveSmallIntegerField(primary_key=True, serialize=False, default=0, verbose_name='ID')),
+                ('hostname', models.CharField(max_length=15, default='hostname')),
                 ('ip', models.GenericIPAddressField(default='127.0.0.1')),
                 ('backup', models.BooleanField(default=False)),
                 ('f_ultimo_backup', models.DateTimeField(null=True, blank=True)),

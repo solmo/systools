@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+admin.site.site_header = 'Admin de Systools. Sub. Sec. Sistemas de Informacion.'
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 ]

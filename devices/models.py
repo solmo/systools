@@ -7,7 +7,7 @@ class Dispositivo(models.Model):
     ip = models.GenericIPAddressField(default='127.0.0.1')
     # ubicacion = Edificio de model
     backup = models.BooleanField(default=False)
-    f_ultimo_backup = models.DateTimeField(blank= True, null=True)
+    # f_ultimo_backup = models.DateTimeField(blank= True, null=True)
     # recursos = diccionario de recursos
 
     class Meta:
@@ -28,6 +28,9 @@ class Server(Dispositivo):
 
 class VirtualServer(Dispositivo):
     host = models.ForeignKey(Server)
+
+    def __str__(self):
+        return self.hostname
 
     class Meta: 
         #ordering = ["self.hostname"]
