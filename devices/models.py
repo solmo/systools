@@ -22,7 +22,8 @@ class Server(Dispositivo):
     
     
     def __str__(self):
-        return self.hostname
+        return '%s %s' % (self.nombre, self.ubicacion)
+        
 
     class Meta: 
         #ordering = ["self.hostname"]
@@ -34,7 +35,7 @@ class VirtualServer(Dispositivo):
     storage = models.CharField(max_length=15,default ='local')
     
     def __str__(self):
-        return self.hostname
+        return self.nombre
 
     class Meta: 
         #ordering = ["self.hostname"]
