@@ -3,11 +3,11 @@ from .models import Server,VirtualServer
 
 
 class VirtualServerAdmin(admin.ModelAdmin):
-    list_display = ('hostname', 'ip', 'host','backup')
+    list_display = ('nombre', 'ip', 'host','backup')
 
 
 class ServerAdmin(admin.ModelAdmin):
-    list_display = ('hostname', 'ip', 'nodo')
+    list_display = ('nombre', 'ip', 'nodo')
 
 admin.site.register(Server, ServerAdmin)
 admin.site.register(VirtualServer, VirtualServerAdmin)

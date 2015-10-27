@@ -5,7 +5,7 @@ class Dispositivo(models.Model):
     id_dispositivo = models.PositiveSmallIntegerField('ID',primary_key=True,default=000)
     hostname = models.CharField(max_length=15,default ='hostname')
     ip = models.GenericIPAddressField(default='127.0.0.1')
-    # ubicacion = Edificio de model
+    nombre = models.CharField(max_length=25)# ubicacion = Edificio de model
     backup = models.BooleanField(default=False)
     # f_ultimo_backup = models.DateTimeField(blank= True, null=True)
     # recursos = diccionario de recursos
