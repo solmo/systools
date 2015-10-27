@@ -10,6 +10,7 @@ class Dispositivo(models.Model):
     # f_ultimo_backup = models.DateTimeField(blank= True, null=True)
     # recursos = diccionario de recursos
 
+    
     class Meta:
         abstract = True
 
@@ -17,6 +18,7 @@ class Dispositivo(models.Model):
 class Server(Dispositivo):
     so = models.CharField(max_length=15)
     nodo = models.BooleanField(default=False)
+    
     
     def __str__(self):
         return self.hostname
@@ -28,7 +30,8 @@ class Server(Dispositivo):
 
 class VirtualServer(Dispositivo):
     host = models.ForeignKey(Server)
-
+    storage = models.CharField(max_length=15,default ='local')
+    
     def __str__(self):
         return self.hostname
 
