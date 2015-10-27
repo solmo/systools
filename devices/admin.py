@@ -7,7 +7,7 @@ class VirtualServerAdmin(admin.ModelAdmin):
 
 
 class ServerAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'ip', 'nodo')
+    list_display = ('nombre', 'ubicacion', 'ip', 'nodo')
 
 admin.site.register(Server, ServerAdmin)
 admin.site.register(VirtualServer, VirtualServerAdmin)
