@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'devices',
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,4 +108,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
 CELERY_TIMEZONE = TIME_ZONE
+
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
