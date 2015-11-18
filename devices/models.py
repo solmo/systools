@@ -1,4 +1,6 @@
 from django.db import models
+from os import system
+#from .tasks import backup_vm
 
 
 class Dispositivo(models.Model):
@@ -35,7 +37,11 @@ class VirtualServer(Dispositivo):
     # tener presente que storage podria cambiar si se usa para restaurar!
     storage = models.CharField(max_length=15,default ='backups')
     
-    
+    def hacer_backup(self):
+        datos = (self.host.ip, self.id_dispositivo, self.nombre, self.storage)
+        system('fab -H root@%s backup_vm:%s,%s,%s' % datos)
+        #backup_vm.delay(datos)
+
     def __str__(self):
         return self.nombre
 
