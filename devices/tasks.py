@@ -3,22 +3,16 @@ from celery import shared_task
 from os import system
 from .models import VirtualServer
 
-@shared_task
-def listar_vm():
-    for vm in VirtualServer.objects.all():
-        if vm.backup:
-            print vm
-            print type(vm)
 
 @shared_task
 def backup_vms():
     for vm in VirtualServer.objects.all():
-    	if vm.backup:
-    		vm.hacer_backup()
+        if vm.backup:
+            # vm.hacer_backup()
+            datos = (vm.host.ip, vm.id_dispositivo, vm.nombre, vm.storage)
+            backup_vm.delay(datos)
 
-'''
 @shared_task
 def backup_vm(*datos):
-    #system('fab -H root@%s backup_vm:%s,%s,%s' % datos)
-    print datos
-'''
+    info = datos[0]
+    system('fab -H root@%s backup_vm:%s,%s,%s' % info)
