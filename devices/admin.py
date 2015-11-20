@@ -3,7 +3,7 @@ from .models import Server,VirtualServer
 
 
 class VirtualServerAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'ip', 'host','backup')
+    list_display = ('nombre', 'ip', 'host', 'id_dispositivo', 'backup')
 
 
 class ServerAdmin(admin.ModelAdmin):
@@ -12,4 +12,4 @@ class ServerAdmin(admin.ModelAdmin):
 admin.site.register(Server, ServerAdmin)
 admin.site.register(VirtualServer, VirtualServerAdmin)
 
-# Register your models here.
+
